@@ -67,8 +67,7 @@ def make_dataset():
     loans['foreclosure'] = loans['Loan_ID'].apply(lambda loan_id: get_value(counts, loan_id, 'foreclosure_status'))
 
     # store dataframe in interim data folder
-    store_path = os.path.join(cfg.DATA_INTERIM, 'loans_interim.csv')
-    loans.to_csv(store_path, index=False)
+    loans.to_csv(cfg.DATA_INTERIM, index=False)
     print('Final dataset:', loans.shape)
 
 if __name__ == '__main__':
