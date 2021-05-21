@@ -2,8 +2,9 @@
 # Data paths
 
 DATA_RAW = "../data/raw"
-DATA_INTERIM = "../data/interim"
-DATA_PROCESSED = "../data/processed"
+DATA_INTERIM = "../data/interim/loans_interim.csv"
+TRAIN_PATH = "../data/processed/train.csv"
+TEST_PATH = "../data/processed/test.csv"
 
 # Prepare data variables
 CHUNKSIZE = 10 ** 6
@@ -146,3 +147,21 @@ SELECT = [
     
     "Foreclosure_Date",
 ]
+
+# Feature Engineering
+
+DROP_COLS = ['Mortgage_Insurance_Per', 'Co-Borrower_Credit_Score']
+RANDOM_STATE = 42
+
+# Training
+#NUMERICAL = ['Original_Interest_Rate', 'Original_UPB', 'Original_Loan_Term', 'LTV', 'CLTV', 'Number_of_Borrowers',
+            # 'DTI', 'Borrower_Credit_Score', 'Co-Borrower_Credit_Score', 'Number_of_Units', 'Zip', 'Mortgage_Insurance_Per']
+
+#CATEGORICAL = ['Channel', 'First_Time_Home_Buyer', 'Loan_Purpose', 'Property_Type', 'Occupancy_Status']
+
+NUMERICAL = ['Original_Interest_Rate','CLTV',
+             'Borrower_Credit_Score', 'orig_month']
+
+CATEGORICAL = ['First_Time_Home_Buyer', 'Loan_Purpose', 'Property_Type']
+
+TARGET = 'foreclosure'
